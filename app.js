@@ -5,19 +5,19 @@ arrows.forEach((arrow, i) => {
   const itemNumber = movieLists[i].querySelectorAll("img").length;
   let clickCounter = 0;
   arrow.addEventListener("click", () => {
-    const ratio = Math.floor(window.innerWidth / 315); //270 is image width -> how many images you are able to see in  current screen width
+    const ratio = Math.floor(window.innerWidth / 290); //270 is image width -> how many images you are able to see in  current screen width
     clickCounter++;
     if (itemNumber - (4 + clickCounter) + (4 - ratio) >= 0) {
       movieLists[i].style.transform = `translateX(${
-        movieLists[i].computedStyleMap().get("transform")[0].x.value - 315
+        movieLists[i].computedStyleMap().get("transform")[0].x.value - 320 //increase 20 to imageWidth
       }px)`;
     } else {
-      movieLists[i].style.transform = "translateX(0)";
-      clickCounter = 0;
+      movieLists[i].style.transform = "translateX(0)"; //270 is image width -> how many images you are able to see in  current screen width
+      clickCounter = 0; //reset the counter when images comes to start again
     }
   });
 
-  console.log(Math.floor(window.innerWidth / 315));
+  console.log(Math.floor(window.innerWidth / 290));
 });
 
 //TOGGLE
